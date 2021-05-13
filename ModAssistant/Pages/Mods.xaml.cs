@@ -355,6 +355,12 @@ namespace ModAssistant.Pages
             MainWindow.Instance.MainText = $"{FindResource("Mods:FinishedInstallingMods")}.";
             MainWindow.Instance.InstallButton.IsEnabled = true;
             RefreshModsList();
+
+            // Start game
+            if (App.LaunchAfterInstallMods)
+            {
+                Utils.LaunchBeatSaber();
+            }
         }
 
         private async Task InstallMod(Mod mod, string directory)

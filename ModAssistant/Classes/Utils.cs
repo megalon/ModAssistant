@@ -465,5 +465,31 @@ namespace ModAssistant
                 SendNotify($"Copied text to clipboard");
             }
         }
+
+        /// <summary>
+        /// Attempts to launch Beat Saber.
+        /// Will launch from Steam, if using a Steam install.
+        /// </summary>
+        public static void LaunchBeatSaber()
+        {
+            if (App.BeatSaberInstallType == "Steam")
+            {
+                Process.Start("steam://rungameid/" + Utils.Constants.BeatSaberAPPID);
+            }
+            else
+            {
+                string exePath = Path.Combine(App.BeatSaberInstallDirectory, "Beat Saber.exe");
+
+                Process process = new Process()
+                {
+                    StartInfo = new ProcessStartInfo(exePath)
+                    {
+                        WorkingDirectory = Path.GetDirectoryName(exePath)
+                    }
+                };
+
+                process.Start();
+            }
+        }
     }
 }
