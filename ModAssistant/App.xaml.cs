@@ -19,6 +19,7 @@ namespace ModAssistant
         public static bool CheckInstalledMods;
         public static bool SelectInstalledMods;
         public static bool ReinstallInstalledMods;
+        public static bool LaunchAfterInstallMods;
         public static bool CloseWindowOnFinish;
         public static string Version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
         public static List<string> SavedMods = ModAssistant.Properties.Settings.Default.SavedMods.Split(',').ToList();

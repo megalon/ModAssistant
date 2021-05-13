@@ -25,6 +25,7 @@ namespace ModAssistant.Pages
         public bool CheckInstalledMods { get; set; }
         public bool SelectInstalledMods { get; set; }
         public bool ReinstallInstalledMods { get; set; }
+        public bool LaunchAfterInstallMods { get; set; }
         public bool ModelSaberProtocolHandlerEnabled { get; set; }
         public bool BeatSaverProtocolHandlerEnabled { get; set; }
         public bool PlaylistsProtocolHandlerEnabled { get; set; }
@@ -193,6 +194,22 @@ namespace ModAssistant.Pages
             Properties.Settings.Default.ReinstallInstalled = false;
             App.ReinstallInstalledMods = false;
             ReinstallInstalledMods = false;
+            Properties.Settings.Default.Save();
+        }
+
+        private void LaunchAfterInstall_Checked(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.LaunchAfterInstall = true;
+            App.LaunchAfterInstallMods = true;
+            LaunchAfterInstallMods = true;
+            Properties.Settings.Default.Save();
+        }
+
+        private void LaunchAfterInstall_Unchecked(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.LaunchAfterInstall = false;
+            App.LaunchAfterInstallMods = false;
+            LaunchAfterInstallMods = false;
             Properties.Settings.Default.Save();
         }
 

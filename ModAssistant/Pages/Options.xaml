@@ -32,6 +32,7 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto" />
@@ -173,6 +174,23 @@
             Checked="ReinstallInstalled_Checked"
             IsChecked="{Binding ReinstallInstalledMods, Mode=TwoWay}"
             Unchecked="ReinstallInstalled_Unchecked" />
+
+        <TextBlock
+            Grid.Row="7"
+            Margin="5"
+            HorizontalAlignment="Left"
+            FontSize="16"
+            FontWeight="Bold"
+            Text="{DynamicResource Options:LaunchAfterInstallMods}" />
+        <CheckBox
+            Name="LaunchAfterInstall"
+            Grid.Row="7"
+            Grid.Column="1"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Checked="LaunchAfterInstall_Checked"
+            IsChecked="{Binding LaunchAfterInstallMods, Mode=TwoWay}"
+            Unchecked="LaunchAfterInstall_Unchecked" />
 
         <Menu
             Grid.Row="8"
@@ -372,6 +390,5 @@
                 <TextBlock Foreground="White" Text="{DynamicResource Options:RemoveAllModsButton}" />
             </Button>
         </StackPanel>
-
     </Grid>
 </Page>
